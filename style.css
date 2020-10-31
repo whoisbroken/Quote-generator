@@ -492,6 +492,7 @@ div:after {
     }
 }
 
+
 @media (max-width: 600px) {
   .quote__title {
     padding: 15px 10px 0;

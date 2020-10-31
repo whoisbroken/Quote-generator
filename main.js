@@ -1,5 +1,6 @@
-//vars
 
+document.addEventListener("DOMContentLoaded", () => {
+//vars
 const URL = "https://stormy-waters-81463.herokuapp.com/http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json";
 const ICON = `<svg width="22" height="31" viewBox="0 0 22 31" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -23,11 +24,12 @@ const getData = () => {
       loading.remove();
       quoteTitle.innerHTML = `${ICON}${ICON} ${result.quoteText}`;
       quoteAuthor.innerText = result.quoteAuthor.length ? result.quoteAuthor : "Unknown author";
-    })  
+    })
+    .catch(err => {
+                console.log("Error" + err);
+                setTimeout(getData, 100);
+            })
 }
-
-
-document.addEventListener("DOMContentLoaded", () => {
 
   newQuoteBtn.addEventListener('click', getData);
 
